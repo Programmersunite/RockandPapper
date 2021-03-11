@@ -4,80 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="playerChoice">
+    <button id="paper">Paper</button>
+    <button id="rock">Rock</button>
+    <button id="scissors">Scissors</button>
+    </div>
+    <div class="computerChoices">
+        <p class="computerChoice">Paper</p>
+        <p class="computerChoice">Rock</p>
+        <p class="computerChoice">Scissors</p>
+    </div>
+    <footer>
+        <div class="score">
+            <h2>Score:</h2>
+        </div>
+    </footer>
 </body>
-<script>
-    //Rock paper scissor
-    //computerPlay
-    //List of Rock paper scissors
-    rockPapSci = [ "rock", "paper", "scissors"]
-
-    // function with comp. choice
-    computerChoice = function (){
-        return rockPapSci[Math.floor(Math.random()*rockPapSci.length)]
-        }
-    //playerChoice function with prompt and input
-    playerChoice = function(){
-       let choice = prompt(" Rock, Paper, Scissors?", "Paper")
-       return choice
-    }
-    //print result function
-    // returns: you win/lose and all rock/paper/scisors beats rock/paper/scisoors
-        // or remiss
-    printResults = function(computerHand,playerHand,score){
-        if(score === 0){
-            console.log("Remis both choose " + playerHand)
-        } else if(score === 1){
-            console.log(`You Won! ${playerHand} beats ${computerHand}`)
-        }else{
-            console.log(`You Lose!  ${computerHand} beats ${playerHand}`)
-        }
-    }
-    //playRound function
-    playRound = function (){
-    // takes player seclection and computerPlay
-        let computerHand = computerChoice()
-    // assign input to playerSelection
-        let playerHand = playerChoice().toLowerCase()
-        let score = 0
-    // tests who wins
-        if(computerHand===playerHand){
-           printResults(computerHand,playerHand,score)
-        }else if (playerHand==="paper"&&computerHand==="rock" ||
-                    playerHand==="rock"&&computerHand==="scissors" ||
-                    playerHand==="scissors"&&computerHand==="paper"){
-                        score = 1
-                        printResults(computerHand,playerHand,score)
-                    }
-                    else{
-                        score = -1
-                        printResults(computerHand,playerHand,score) 
-                    }
-        return score}
-    //Game function 
-    // plays playRound 5 times
-    // console.log the results and adds a score
-  
-    letsPlay5 = function (){
-        score=0
-    
-        for(i=0; i <5 ; i++) {
-            score+=playRound()
-            console.log(i)
-        }
-        // console.log the winner 
-        if(score>=0){
-        console.log("you won!")
-        }else {
-        console.log("You Lost")
-        }
-        console.log (`The score is ` + score)
-    }
-    looptest = function(){
-        
-    }
-
-</script>
+<script src="script.js"></script>
 </html>
